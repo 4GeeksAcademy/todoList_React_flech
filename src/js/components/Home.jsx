@@ -41,6 +41,7 @@ const Home = () => {
           method: "DELETE",
         }
       );
+
       if (!response.ok) {
         throw new Error(`Error HTTP! Estado: ${response.status}`);
       }
@@ -51,7 +52,7 @@ const Home = () => {
 
   return (
     <div className="list" style={{ width: "500px" }}>
-      <h1>Mis tareas </h1>
+      <h1> Mis tareas </h1>
 
       <ul>
         <Post actualizarTareas={fetchTareas} />
@@ -70,7 +71,18 @@ const Home = () => {
           </li>
         ))}
       </ul>
-      <div>{misTareas.length} tareas </div>
+
+      <div style={{ marginTop: "3px" }}>{misTareas.length} tareas </div>
+
+      <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+        <button
+          onClick={() => {
+            eliminarTarea(setMisTareas.filter(data.todos));
+          }}
+        >
+          Eliminar todo
+        </button>
+      </div>
     </div>
   );
 };
