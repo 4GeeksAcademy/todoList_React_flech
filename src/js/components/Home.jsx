@@ -75,7 +75,10 @@ const Home = () => {
       <div style={{ marginTop: "3px" }}>{misTareas.length} tareas </div>
 
       <div style={{ marginTop: "20px", marginBottom: "20px" }}>
-        <button
+        
+        <button //AQUI AÑADI UN BOTON PAR AELIMINARLO TODO, EL ASUNTO ES QUE ME ELIMINA TODA LA LISTA PERO SOLO DEL FRONT.
+                //NO MODIFICA LA API. ASIQUE CUANDO ESCRIBO ALGO "NUEVO" SE RECUPERA LA LISTA ANTERIOR Y LO NUEVO SE AÑADE AL FINAL.
+                // ENCONTRE COMO HACER QU ESE BORRE DEL FRONT Y DEL BACK PERO NO ENTENDI MUY BIEN QUE ESTABA HACIENDO ASIQUE LO DEJE POR AHORA. CUANDO PUEDAS QUE ALGUIEN ME LO EXPLIQUE.
           onClick={() => {
             eliminarTarea(setMisTareas([]));
           }}
