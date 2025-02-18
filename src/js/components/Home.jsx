@@ -77,7 +77,7 @@ const Home = () => {
       <div style={{ marginTop: "20px", marginBottom: "20px" }}>
         <button
           onClick={() => {
-            eliminarTarea(setMisTareas.filter(data.todos));
+            eliminarTarea(setMisTareas([]));
           }}
         >
           Eliminar todo
