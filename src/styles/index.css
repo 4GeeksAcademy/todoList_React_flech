@@ -1,4 +1,5 @@
 body {
+  background-color: azure;
   margin-top: 100px;
   display: flex;
   justify-content: center;
@@ -8,19 +9,47 @@ body {
 ul {
   padding: 0;
   margin-bottom: 0;
+  justify-content: space-between 10px;
+  gap: 20px;
+  padding: 0;
 }
 
 ul li {
-  border: 1px solid grey;
+  border-radius: 5px;
+  border: 1px solid rgb(108, 173, 220);
   list-style: none;
+  padding: 10px;
   padding: 5px;
+  background-color: white;
+  gap: 10px;
 }
 
 h1 {
+  color: white;
   text-align: center;
+  -webkit-text-stroke: 1px rgb(108, 173, 220);
 }
 
 input {
   border: none;
   width: 100%;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0, 2s ease-in-out;
+  box-shadow: 0 0 8px black;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  box-shadow: 0 0 5px;
+  transform: scale(0.9);
 }

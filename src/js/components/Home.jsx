@@ -54,11 +54,11 @@ const Home = () => {
     <div className="list" style={{ width: "500px" }}>
       <h1> Mis tareas </h1>
 
-      <ul>
+      <ul style={{ padding: 0, listStyle: "none" }}>
         <Post actualizarTareas={fetchTareas} />
 
         {misTareas.map((t, index) => (
-          <li key={index}>
+          <li style={{ marginTop: "5px", marginBottom: "5px" }} key={index}>
             {t.label}{" "}
             <img
               src="https://raw.githubusercontent.com/4GeeksAcademy/Lista_De_Tareas/refs/heads/main/marca-x.png"
@@ -67,14 +67,22 @@ const Home = () => {
                 eliminarTarea(t.id);
                 setMisTareas(misTareas.filter((tarea) => tarea.id !== t.id));
               }}
-            />
+            ></img>
           </li>
         ))}
       </ul>
 
       <div style={{ marginTop: "3px" }}>{misTareas.length} tareas </div>
 
-      <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+      <div
+        style={{
+          marginTop: "20px",
+          marginBottom: "20px",
+          display: "flex",
+          justifyContent: "flex-end",
+          backgroundcolor: "red",
+        }}
+      >
         <button
           onClick={() => {
             misTareas.forEach((t) => {

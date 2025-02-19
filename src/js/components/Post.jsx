@@ -30,7 +30,6 @@ const Post = (props) => {
 
       const data = await response.json();
 
-      // Actualizar la lista de usuarios tras crear uno nuevo
       props.actualizarTareas();
     } catch (error) {
       console.error("Hubo un problema al crear el usuario:", error);
