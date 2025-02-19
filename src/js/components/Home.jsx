@@ -77,7 +77,10 @@ const Home = () => {
       <div style={{ marginTop: "20px", marginBottom: "20px" }}>
         <button
           onClick={() => {
-            eliminarTarea(setMisTareas([]));
+            misTareas.forEach((t) => {
+              eliminarTarea(t.id);
+              setMisTareas([]);
+            });
           }}
         >
           Eliminar todo
