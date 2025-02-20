@@ -4,6 +4,8 @@ import Post from "./Post";
 //create your first component
 
 const Home = () => {
+  const API_URL = "https://playground.4geeks.com/todo";
+  const ID_USER = "Dani_Yanani";
   const [misTareas, setMisTareas] = useState([]);
   const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
   const [tareas, setTareas] = useState([]);
@@ -14,9 +16,7 @@ const Home = () => {
 
   const fetchTareas = async () => {
     try {
-      const response = await fetch(
-        "https://playground.4geeks.com/todo/users/Dani_Yanani"
-      );
+      const response = await fetch(`${API_URL}/users/${ID_USER}`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -35,12 +35,9 @@ const Home = () => {
     }
 
     try {
-      const response = await fetch(
-        `https://playground.4geeks.com/todo/todos/${id}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const response = await fetch(`${API_URL}/todos/${id}`, {
+        method: "DELETE",
+      });
 
       if (!response.ok) {
         throw new Error(`Error HTTP! Estado: ${response.status}`);
@@ -55,7 +52,11 @@ const Home = () => {
       <h1> Mis tareas </h1>
 
       <ul style={{ padding: 0, listStyle: "none" }}>
-        <Post actualizarTareas={fetchTareas} />
+        <Post
+          actualizarTareas={fetchTareas}
+          INFO_API_URL={API_URL}
+          INFO_ID_USER={ID_USER}
+        />
 
         {misTareas.map((t, index) => (
           <li style={{ marginTop: "5px", marginBottom: "5px" }} key={index}>
@@ -85,10 +86,8 @@ const Home = () => {
       >
         <button
           onClick={() => {
-            misTareas.forEach((t) => {
-              eliminarTarea(t.id);
-              setMisTareas([]);
-            });
+            misTareas.forEach((t) => eliminarTarea(t.id));
+            setMisTareas([]);
           }}
         >
           Eliminar todo

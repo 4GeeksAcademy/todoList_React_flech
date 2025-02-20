@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 const Post = (props) => {
   const [inputValue, setInputValue] = useState("");
-
   const añadirTarea = async () => {
     if (!inputValue) {
       console.error("El nombre del usuario no puede estar vacío.");
@@ -11,7 +10,7 @@ const Post = (props) => {
 
     try {
       const response = await fetch(
-        `https://playground.4geeks.com/todo/todos/Dani_Yanani`,
+        `${props.INFO_API_URL}/todos/${props.INFO_ID_USER}`,
         {
           method: "POST",
           headers: {
